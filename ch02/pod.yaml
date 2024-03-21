@@ -3,6 +3,16 @@ kind: Deployment
 metadata:
   name: hello-kiamol-3
 spec:
-  containers:
-    - name: web
-      image: kiamol/ch02-hello-kiamol
+  selector:
+    matchLabels:
+      app: hello-kiamol-3
+
+  template:
+    metadata:
+      labels:
+        app: hello-kiamol-3
+
+  spec:
+    containers:
+      - name: web
+        image: kiamol/ch02-hello-kiamol
